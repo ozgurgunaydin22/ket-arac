@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f2a4a"><title>KET Araç Giriş</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font:15px/1.45 "Segoe UI",system-ui,Arial,sans-serif;color:#24313f;background:linear-gradient(160deg,#0b2038,#12315a 55%,#183f73);-webkit-font-smoothing:antialiased}
+#app{min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:18px 14px 40px}
+button{font:inherit;cursor:pointer;border:0;font-weight:700}input,select{font:inherit}
+.sc-card{width:min(480px,100%);background:#fff;border-radius:24px;padding:22px 20px 20px;box-shadow:0 20px 50px #02101f77}
+.sc-brand{text-align:center;font-size:11px;letter-spacing:3px;font-weight:800;color:#d4a24c}
+.sc-plate{text-align:center;font-size:40px;font-weight:900;letter-spacing:2px;color:#0f2a4a;margin-top:6px}.sc-sub{text-align:center;color:#6b7885;font-size:13px;margin-bottom:12px}
+h2{text-align:center;color:#0f2a4a;margin:10px 0}p{text-align:center;color:#5d6b7b}
+.sc-state{border-radius:14px;padding:12px 14px;margin-bottom:12px;display:flex;flex-direction:column;gap:2px}.sc-state.free{background:#e8f6ee;color:#14532d}.sc-state.busy{background:#fff1d6;color:#7a4300}.sc-state span{font-size:13px}
+label{display:block;font-size:12px;font-weight:700;color:#34475d;margin:10px 0 0}input,select{width:100%;margin-top:4px;padding:13px 12px;font-size:16px;border-radius:12px;border:1px solid #cdd5de;background:#fff;color:#24313f}
+.sc-btns{display:grid;gap:10px;margin:16px 0 6px}.sc-btns button,.sc-go{padding:15px 12px;font-size:17px;border-radius:14px;color:#fff;display:flex;flex-direction:column;align-items:center;gap:2px;width:100%}
+.sc-btns small{font-weight:400;font-size:12px;opacity:.85}.sc-go{background:linear-gradient(135deg,#198754,#12633f)}.sc-stop{background:linear-gradient(135deg,#1b4278,#0f2a4a)}
+.sc-btns button{opacity:.78}.sc-btns button.hi{opacity:1;box-shadow:0 0 0 4px #d4a24c88}
+.sc-msg{border-radius:12px;padding:10px 12px;margin:10px 0;font-size:13px;font-weight:600}.sc-msg.err{background:#fde8e8;color:#a91e1e}.sc-msg.warn{background:#fff4dc;color:#704b00}.sc-msg.ok{background:#e8f6ee;color:#14532d}
+label.sc-chk{display:flex;align-items:center;gap:8px;font-weight:600}.sc-chk input{width:auto;margin:0}.sc-foot{text-align:center;font-size:11px;color:#6b7885;margin-top:10px}
+.sc-done{text-align:center}.sc-check{width:84px;height:84px;border-radius:50%;background:#198754;color:#fff;font-size:44px;display:grid;place-items:center;margin:14px auto}
+a.sc-wa{display:block;text-align:center;background:#25d366;color:#fff;text-decoration:none;border-radius:14px;padding:13px;font-weight:700;margin:10px 0}
+</style></head><body><div id="app"></div>
+<script>window.KET_CFG={"api":"","wa":"","vehicles":[{"plate":"21AFF214","brand":"FORD TOURNEO COURİER","unit":"ARAÇ FİLO MÜDÜRLÜĞÜ"},{"plate":"34NMB250","brand":"FIAT FIAT","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34EVV154","brand":"MITSUBISHI FUSO CANTER","unit":"ARIZA ONARIM BAKIM MÜDÜRLÜĞÜ"},{"plate":"34EZT349","brand":"DACİA DUSTER 4X4","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34FZA283","brand":"DACİA DUSTER 4X4","unit":"3.SEVİYE BAKIM"},{"plate":"34GNP157","brand":"FORD TRANSİT","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34GNN806","brand":"FORD TRANSİT","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34GNN800","brand":"FORD TRANSİT","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34GNN661","brand":"FORD TRANSİT","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34GNP159","brand":"FORD TRANSİT","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34GNN802","brand":"FORD TRANSİT","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34MNP458","brand":"OTOKAR ATLAS","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34MKG401","brand":"OTOKAR ATLAS","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"34DPT759","brand":"FİAT FİORİNO","unit":"ARAÇ FİLO MÜDÜRLÜĞÜ"},{"plate":"34FYR515","brand":"FORD TOURNEO COURİER","unit":"ARAÇ FİLO MÜDÜRLÜĞÜ"},{"plate":"21AGC219","brand":"FORD TRUCKS","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"3400251670","brand":"HİDROMEK KANAL KAZICI VE YÜKLEYİCİ","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"3400251666","brand":"HİDROMEK KANAL KAZICI VE YÜKLEYİCİ","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"},{"plate":"3400251661","brand":"HİDROMEK KANAL KAZICI VE YÜKLEYİCİ","unit":"TESİS VE YAPIM İŞLERİ MÜDÜRLÜĞÜ"}],"personnel":[{"id":"mw39q1t2otlas","ad":"OZGUR GUNAYDIN","sicil":"10003471","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2qngor","ad":"SEFA GENC","sicil":"10002646","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2p161e","ad":"MEHMET OLGAR","sicil":"20004168","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2f6cnh","ad":"ABDULLAH TENHA","sicil":"20009171","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2iwvq3","ad":"ABDULMUTTALIP BULGEN","sicil":"20008996","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2ztjac","ad":"FAYSAL YILDIZ","sicil":"10003578","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2iziz4","ad":"IZETTIN UCUCU","sicil":"10003490","pinHash":"2b95b82xuf2"},{"id":"mw39q1t28kbj4","ad":"MUHARREM AKSOY","sicil":"20006541","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2hd8og","ad":"HASAN TARHAN","sicil":"10003672","pinHash":"2b95b82xuf2"},{"id":"mw39q1t236wqd","ad":"SAKIR KARATAS","sicil":"10003603","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2k7okf","ad":"HUSEYIN ATALAY","sicil":"10003402","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2gnofk","ad":"GURI DAYAN","sicil":"20005117","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2ktl1m","ad":"HAKIM BESTAS","sicil":"10003361","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2gwspv","ad":"ERKAN UZUMCU","sicil":"10003352","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2f7yrh","ad":"SAMI DEMIR","sicil":"20004262","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2gfl18","ad":"RAMAZAN ULUG","sicil":"10003652","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2m7y1s","ad":"HALIL UZUMCU","sicil":"10003419","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2u3crh","ad":"AHMET GUN","sicil":"20005088","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2b29xu","ad":"SELIM KANGUL","sicil":"10003453","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2rfe1c","ad":"MUSTAFA SAHIN","sicil":"20004522","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2ro6es","ad":"SEHMUS TUFAN","sicil":"10003655","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2hd7gk","ad":"CEBRAIL ILCIN","sicil":"10003401","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2b6k2h","ad":"TURGUT LALE","sicil":"10003403","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2885od","ad":"HUSEYIN CAGINE","sicil":"10003375","pinHash":"2b95b82xuf2"},{"id":"mw39q1t29yp6j","ad":"VEYSEL KARATAS","sicil":"20011007","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2l68z2","ad":"EMRAH KAYIK","sicil":"20013397","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2isyxo","ad":"MEHMET SALIH ERIG","sicil":"20001599","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2wnwfu","ad":"ERCAN CUCUN","sicil":"20015484","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2l4v1x","ad":"MEHMET MUNIP ADANIR","sicil":"20016451","pinHash":"2b95b82xuf2"},{"id":"mw39q1t2q5j8i","ad":"HUSEYIN TUNCER","sicil":"10003584","pinHash":"2b95b82xuf2"}]};</script>
+<script>
+(function(){
+"use strict";
+const C=window.KET_CFG||{},$=id=>document.getElementById(id),app=$("app");
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const K={log:"ket_giris_logs_v1",pend:"ket_giris_pending_v1",me:"ket_giris_me_v1"};
+const ld=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+function h53(str,seed){seed=seed||0;let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0;i<str.length;i++){const ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return (4294967296*(2097151&h2)+(h1>>>0)).toString(36);}
+const pinHash=p=>h53("KET-PIN|"+String(p).trim());
+const tokenOf=p=>p+"."+h53("KET-ARAC|"+p).slice(0,6);
+function plateFromToken(t){t=String(t||"");const i=t.lastIndexOf(".");if(i<1)return null;const p=t.slice(0,i);return tokenOf(p)===t?p:null;}
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const fdt=iso=>{const d=new Date(iso);return isNaN(d)?"":d.toLocaleString("tr-TR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})};
+const api=C.api||"";
+async function apiGet(params){const r=await fetch(api+(api.includes("?")?"&":"?")+new URLSearchParams(params));return r.json();}
+async function apiPost(body){const r=await fetch(api,{method:"POST",body:JSON.stringify(body)});return r.json();}
+const logs=()=>ld(K.log,[]).sort((a,b)=>a.ts<b.ts?-1:1);
+function addLog(ev){const l=ld(K.log,[]);l.push(ev);sv(K.log,l.slice(-300));}
+function currentOf(plate,list){const l=list.filter(x=>x.plate===plate).sort((a,b)=>a.ts<b.ts?-1:1);const last=l[l.length-1];return {cur:last&&last.type==="ALDI"?last:null,last:last||null};}
+async function flush(){const p=ld(K.pend,[]);if(!api||!p.length)return;const left=[];for(const ev of p){try{const r=await apiPost({action:"log",event:ev,pinHash:ev.pinHash});if(!(r&&r.ok)&&!(r&&r.err&&/PIN/.test(r.err)))left.push(ev);}catch(e){left.push(ev);}}sv(K.pend,left);}
+const V=C.vehicles||[];
+const m=location.hash.match(/^#arac=([^&]+)/);
+if(!m){home();}else{const plate=plateFromToken(decodeURIComponent(m[1]));if(!plate)bad();else scan(plate);}
+function bad(){app.innerHTML='<div class="sc-card"><div class="sc-brand">KET ARAÇ TAKİP</div><h2>Geçersiz QR</h2><p>Bu QR kodu doğrulanamadı. Lütfen araç üzerindeki orijinal etiketi okutun.</p></div>';}
+function home(){app.innerHTML='<div class="sc-card"><div class="sc-brand">KET ARAÇ TAKİP</div><h2>Araç seçin</h2><p>Araç üzerindeki QR kodu telefonun kamerasıyla okutun ya da plakayı listeden seçin.</p><label>Plaka<select id="hp"><option value="">— Plaka seçin —</option>'+V.map(v=>'<option value="'+esc(v.plate)+'">'+esc(v.plate)+' · '+esc(v.brand||"")+'</option>').join("")+'</select></label></div>';$("hp").onchange=e=>{if(e.target.value)location.hash="#arac="+encodeURIComponent(tokenOf(e.target.value));};}
+window.addEventListener("hashchange",()=>location.reload());
+function scan(plate){
+  const info=V.find(x=>x.plate===plate)||{plate,brand:"",unit:""};
+  let P=(C.personnel||[]).map(p=>({id:p.id,ad:p.ad,sicil:p.sicil||"",pinHash:p.pinHash||""}));let recent=logs().filter(x=>x.plate===plate).slice(-8);let online=false;const me=ld(K.me,null);
+  function paint(msg){
+    const {cur,last}=currentOf(plate,recent);const selEl=$("scP");const sel=(selEl&&selEl.value)||(me&&me.id)||"";
+    const holder=cur?'<div class="sc-state busy"><b>Şu an kullanımda</b><span>👤 '+esc(cur.ad)+' · '+fdt(cur.ts)+'\'den beri</span></div>':'<div class="sc-state free"><b>Araç boşta</b><span>'+(last?'Son kullanan: '+esc(last.ad)+' · '+fdt(last.ts):'Henüz hareket yok')+'</span></div>';
+    const manual=!P.length;
+    app.innerHTML='<div class="sc-card"><div class="sc-brand">KET ARAÇ TAKİP</div><div class="sc-plate">'+esc(plate)+'</div><div class="sc-sub">'+esc([info.brand,info.unit].filter(Boolean).join(" · "))+'</div>'+holder+(msg?'<div class="sc-msg '+msg[0]+'">'+esc(msg[1])+'</div>':'')
+     +'<label>Personel'+(manual?'<input id="scName" placeholder="Ad Soyad" autocomplete="name"><input id="scSicil" placeholder="Sicil No" inputmode="numeric">':'<select id="scP"><option value="">— Adınızı seçin —</option>'+P.map(p=>'<option value="'+esc(p.id)+'" '+(p.id===sel?"selected":"")+'>'+esc(p.ad)+'</option>').join("")+'</select>')+'</label>'
+     +(manual?'':'<label>PIN<input id="scPin" type="password" inputmode="numeric" maxlength="6" placeholder="••••" autocomplete="off"></label>')
+     +'<label>KM (isteğe bağlı)<input id="scKm" type="number" inputmode="numeric" placeholder="örn. 77155"></label><label>Not (isteğe bağlı)<input id="scNote" placeholder="Hasar, yakıt, görev yeri…"></label>'
+     +'<div class="sc-btns"><button id="scIn" class="sc-go">🚗 Aracı Teslim Aldım<small>Kullanıma başla</small></button><button id="scOut" class="sc-stop">🅿️ Aracı Teslim Ettim<small>Kullanımı bitir</small></button></div>'
+     +'<label class="sc-chk"><input type="checkbox" id="scRem" '+(me?"checked":"")+'> Bu cihazda beni hatırla</label><div class="sc-foot">'+(online?"● Merkezle bağlı":(api?"○ Çevrimdışı – kayıt cihazda saklanır":"○ Kayıt bu cihazda saklanır"))+'</div></div>';
+    if($("scP"))$("scP").onchange=()=>paint();
+    const hi=cur&&sel&&cur.personId===sel?$("scOut"):$("scIn");hi.classList.add("hi");
+    $("scIn").onclick=()=>submit("ALDI");$("scOut").onclick=()=>submit("TESLIM");
+  }
+  async function submit(type){
+    const pid=$("scP")?$("scP").value:"";let ad,sicil,ph="";
+    if($("scP")){if(!pid)return paint(["err","Lütfen adınızı seçin."]);const pr=P.find(p=>p.id===pid);ad=pr.ad;sicil=pr.sicil;if(!$("scPin").value)return paint(["err","PIN giriniz."]);ph=pinHash($("scPin").value);if(pr.pinHash&&pr.pinHash!==ph)return paint(["err","PIN hatalı."]);}
+    else{ad=($("scName").value||"").trim().toLocaleUpperCase("tr-TR");sicil=($("scSicil").value||"").trim();if(!ad)return paint(["err","Ad Soyad giriniz."]);}
+    const ev={id:uid(),ts:new Date().toISOString(),plate,type,personId:pid,ad,sicil,km:($("scKm").value||"").trim(),note:($("scNote").value||"").trim()};
+    if($("scRem").checked)sv(K.me,{id:pid,ad});else try{localStorage.removeItem(K.me)}catch(e){}
+    let state="local";
+    if(api){try{const r=await apiPost({action:"log",event:ev,pinHash:ph});if(r&&r.ok)state="sent";else if(r&&r.err)return paint(["err",r.err]);else state="queued";}catch(e){state="queued";}}
+    addLog(ev);if(state==="queued"){const pe=ld(K.pend,[]);pe.push(Object.assign({pinHash:ph},ev));sv(K.pend,pe);}
+    const wa=C.wa?'https://wa.me/'+encodeURIComponent(C.wa)+'?text='+encodeURIComponent(["KETARAC",ev.plate,ev.type,ev.ad,ev.sicil,ev.ts,ev.km,ev.note,ev.id].join("|")):"";
+    app.innerHTML='<div class="sc-card sc-done"><div class="sc-brand">KET ARAÇ TAKİP</div><div class="sc-check">✔</div><h2>'+(type==="ALDI"?"Kullanımınız başladı":"Teslim kaydedildi")+'</h2><p><b>'+esc(ad)+'</b><br>'+esc(plate)+' · '+fdt(ev.ts)+'</p>'
+     +(state==="sent"?'<div class="sc-msg ok">Kayıt merkeze iletildi.</div>':state==="queued"?'<div class="sc-msg warn">İnternet yok: kayıt cihazda saklandı, bağlantı gelince otomatik gönderilecek.</div>':'<div class="sc-msg warn">Kayıt bu cihazda saklandı.'+(wa?' Merkeze iletmek için aşağıdaki düğmeyi kullanın.':'')+'</div>')
+     +(wa&&state!=="sent"?'<a class="sc-wa" href="'+wa+'">WhatsApp ile merkeze bildir</a>':'')+'<button class="sc-go" id="scAgain">Yeni işlem</button></div>';
+    recent=logs().filter(x=>x.plate===plate).slice(-8);$("scAgain").onclick=()=>paint();
+  }
+  paint();
+  if(api){(async()=>{try{await flush();const r=await apiGet({action:"scan",plate});if(r&&r.ok){online=true;P=(r.personnel||[]).map(p=>({id:p.id,ad:p.ad,sicil:"",pinHash:""}));recent=(r.recent||[]).concat(logs().filter(x=>x.plate===plate)).sort((a,b)=>a.ts<b.ts?-1:1);paint();}}catch(e){}})();window.addEventListener("online",flush);}
+}
+})();
+</script></body></html>
